@@ -1,5 +1,5 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import initializeAuthentication from "./FIrebase/firebase.initialize";
 
@@ -25,6 +25,13 @@ function App() {
 	return (
 		<div className="App">
 			<button onClick={handleGoogleSignIn}>Google Sign in</button>
+			<br />
+			{user.email && (
+				<div>
+					<h2>Welcome {user.name}</h2>
+					<p>I know your email address : {user.email}</p>
+				</div>
+			)}
 		</div>
 	);
 }
