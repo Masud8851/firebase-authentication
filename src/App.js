@@ -66,10 +66,15 @@ function App() {
 	};
 	return (
 		<div className="App">
-			<button onClick={handleGoogleSignIn}>Google Sign in</button>
-			<button onClick={handleGitHubSignIn}>Github Sign in</button>
+			{!user.name ? (
+				<div>
+					<button onClick={handleGoogleSignIn}>Google Sign in</button>
+					<button onClick={handleGitHubSignIn}>Github Sign in</button>
+				</div>
+			) : (
+				<button onClick={handleSignOut}>Sign out</button>
+			)}
 			<br />
-			<button onClick={handleSignOut}>Sign out</button>
 			{user.name && (
 				<div>
 					<h2>Welcome {user.name}</h2>
